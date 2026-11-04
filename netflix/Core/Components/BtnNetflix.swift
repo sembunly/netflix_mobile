@@ -8,11 +8,22 @@
 import SwiftUI
 
 struct BtnNetflix: View {
+    let title: String
+    let action: () -> Void
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button(action: action) {
+            Text(title)
+                .font(.system(size: 16, weight: .bold))
+                .foregroundStyle(.white)
+                .frame(maxWidth: .infinity)
+                .padding()
+                .background(Color(red: 0.89, green: 0.04, blue: 0.08))
+                .clipShape(RoundedRectangle(cornerRadius: 8))
+        }
     }
 }
-
-#Preview {
-    BtnNetflix()
-}
+//
+//#Preview {
+//    BtnNetflix()
+//}
