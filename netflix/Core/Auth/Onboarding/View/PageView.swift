@@ -5,14 +5,32 @@
 //  Created by BunliSem on 5/11/26.
 //
 
+
+
 import SwiftUI
 
-struct PageView: View {
+struct PageView<Content: View>: View {
+
+    @Binding var currentPage: Int
+
+    var page: Int
+    var content: Content
+
+    init(
+        currentPage: Binding<Int>,
+        page: Int,
+        @ViewBuilder content: () -> Content
+    ) {
+        self._currentPage = currentPage
+        self.page = page
+        self.content = content()
+    }
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        content
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .scaleEffect(currentPage == page ? 1.0 : 0.95)
+            .animation(.easeInOut(duration: 0.3), value: currentPage)
     }
 }
 
-#Preview {
-    PageView()
-}
