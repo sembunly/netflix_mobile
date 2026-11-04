@@ -7,12 +7,21 @@
 
 import SwiftUI
 
-struct SafariSheet: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+import SafariServices
+
+struct SafariSheet: UIViewControllerRepresentable {
+    let url: URL
+
+    func makeUIViewController(context: Context) -> SFSafariViewController {
+        SFSafariViewController(url: url)
     }
+
+    func updateUIViewController(
+        _ controller: SFSafariViewController,
+        context: Context
+    ) {}
 }
 
-#Preview {
-    SafariSheet()
-}
+//#Preview {
+//    SafariSheet()
+//}
