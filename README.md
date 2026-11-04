@@ -12,7 +12,7 @@ A Netflix-inspired iOS app built with **SwiftUI**.
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/sembunly
+   git clone https://github.com/sembunly/netflix_mobile.git 
    ```
 2. Open `netflix.xcodeproj` in Xcode.
 3. Select a simulator or device and hit **Run** (⌘R).
