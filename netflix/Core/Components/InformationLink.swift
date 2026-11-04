@@ -8,11 +8,19 @@
 import SwiftUI
 
 struct InformationLink: View {
+    let title: String
+    let url: URL
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Link(destination: url) {
+            Text(title)
+                .font(.system(size: 14))
+                .foregroundStyle(.white)
+                .underline()
+        }
     }
 }
-
-#Preview {
-    InformationLink()
-}
+//
+//#Preview {
+//    InformationLink()
+//}
