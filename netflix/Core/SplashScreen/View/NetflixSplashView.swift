@@ -2,7 +2,9 @@
 //  NetflixSplashView.swift
 //  netflix
 //
-//  Created by BunliSem on 4/11/26.
+//  Created by BunliSem on 6/11/26.
+//
+
 //
 
 
@@ -28,23 +30,22 @@ struct NetflixSplashView: View {
                 ForEach(Array(letters.enumerated()), id: \.offset) { index, letter in
 
                     Text(String(letter))
-                        .font(.system(size: 60, weight: .bold))
+                        .font(.system(size: 70, weight: .bold))
                         .foregroundStyle(
                             LinearGradient(
                                 colors: [
-                                    Color(red: 0.80, green: 0.04, blue: 0.08),
-                                    Color(red: 0.50, green: 0.00, blue: 0.02)
+                                    Color(red: 0.8, green: 0.04, blue: 0.09)
                                 ],
                                 startPoint: .top,
                                 endPoint: .bottom
                             )
                         )
                         .opacity(isAnimating ? 1 : 0)
-                        .scaleEffect(isAnimating ? 1 : 0.5)
+                        .scaleEffect(isAnimating ? 1 : 0.4)
                         .offset(y: isAnimating ? 0 : 5)
                         .animation(
-                            .easeOut(duration: 0.5)
-                                .delay(Double(index) * 0.3),
+                            .easeOut(duration: 0.4)
+                                .delay(Double(index) * 0.2),
                             value: isAnimating
                         )
                 }
