@@ -48,4 +48,5 @@ playground.xcworkspace
 *.swp
 *~
 .env
+Secrets.xcconfig
 
