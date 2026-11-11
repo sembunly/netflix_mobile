@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  netflix
 //
-//  Created by BunliSem on 4/11/26.
+//  Created by BunliSem on 6/11/26.
 //
 
 
@@ -12,11 +12,6 @@ struct ContentView: View {
     @State private var showSplash = true
     @State private var showOnboarding = false
     @State private var showHome = false
-
-    @State private var showShareSheet = false
-    @State private var showSafariSheet = false
-
-    private let netflixURL = URL(string: "https://www.netflix.com")!
 
     var body: some View {
         ZStack {
@@ -34,7 +29,7 @@ struct ContentView: View {
                 .transition(.opacity)
 
             } else if showHome {
-                homeScreen
+                HomeView()
                     .transition(.opacity)
             }
         }
@@ -47,41 +42,8 @@ struct ContentView: View {
                 }
             }
         }
-        .sheet(isPresented: $showShareSheet) {
-            ShareSheet(items: [netflixURL])
-                .presentationDetents([.medium, .large])
-        }
-        .sheet(isPresented: $showSafariSheet) {
-            SafariSheet(url: netflixURL)
-                .ignoresSafeArea()
-        }
     }
 
-    private var homeScreen: some View {
-        VStack(spacing: 25) {
-            NetflixLogo()
-
-            Text("Welcome to Netflix")
-                .font(.title2.bold())
-                .foregroundStyle(.white)
-
-            BtnNetflix(title: "VIEW NETFLIX") {
-                showSafariSheet = true
-            }
-
-            BtnNetflix(title: "SHARE NETFLIX") {
-                showShareSheet = true
-            }
-
-            InformationLink(
-                title: "Netflix Information",
-                url: netflixURL
-            )
-        }
-        .padding(25)
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.black)
-    }
 }
 
 #Preview {
